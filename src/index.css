@@ -65,12 +65,12 @@ a.card {
   display: block;
 }
 .card {
-  border: 1px solid orange;
+  border: 1px solid #213547;
   width: 20rem;
 }
 
 .article-body {
-  max-height: 8rem;
+  max-height: 10rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -88,4 +88,10 @@ a.card {
   padding: 1rem;
   /* justify-content: center; */
   overflow-y: auto;
+}
+
+.return-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
 }

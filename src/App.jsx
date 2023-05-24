@@ -6,7 +6,7 @@ import './App.css'
 const getSNData = async () => {
   const response = await fetch('https://dev99637.service-now.com//api/495743/test_knowledge/test');
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data.result;
 }
 
@@ -23,7 +23,7 @@ function App() {
     return <div>Loading...</div>;
   }
 
-  console.log(current)
+  // console.log(current)
   return (
     <ul className='card-container'>
       {
@@ -37,6 +37,7 @@ function App() {
               key={item.id} 
               id={item.id} 
               text={item.text} 
+              short_description={item.short_description}
               number={item.number}
               current={current}
             />

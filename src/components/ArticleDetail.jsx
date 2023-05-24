@@ -2,7 +2,8 @@ export default function ArticleDetail({
   isActiveArticleDetail, 
   setActiveArticleDetail, 
   id, 
-  text, 
+  text,
+  short_description,
   number,
   current,
   setCurrent 
@@ -17,8 +18,8 @@ export default function ArticleDetail({
   if (isActiveArticleDetail) {
     return (
       <li className='card'>
-      <h1>{number}</h1>
-      <div dangerouslySetInnerHTML={{ __html: text }} className='article-body'></div>
+      <h2>{number}</h2>
+      <p>{short_description}</p>
       <button onClick={() => toggle(!isActiveArticleDetail, id)}>More Detail</button>
       </li>
     )
@@ -27,9 +28,9 @@ export default function ArticleDetail({
   if(!isActiveArticleDetail && current === id) {
     return (
       <div className="article-detail">
-      <h1>{number}</h1>
-      <div dangerouslySetInnerHTML={{ __html: text }} ></div>
-      <button onClick={() => toggle(!isActiveArticleDetail, id)}>Go Back</button>
+        <button onClick={() => toggle(!isActiveArticleDetail, id)} className="return-btn">Go Back</button>
+        <h1>{number}</h1>
+        <div dangerouslySetInnerHTML={{ __html: text }} ></div>
       </div>
     )
   }
