@@ -13,9 +13,10 @@ const getSNData = async () => {
 function App() {
   const [kbArticles, setKBArticles] = useState([]);
   const [isActiveArticleDetail, setActiveArticleDetail] = useState(true);
+  const [listView, setListView] = useState(false);
   const [current, setCurrent] = useState('');
 
-  useEffect(()=> {
+  useEffect(() => {
     getSNData().then(item => setKBArticles(item));
   }, []);
 
@@ -24,29 +25,34 @@ function App() {
   }
 
   // console.log(current)
-  return (
-    <ul className='card-container'>
-      {
-        kbArticles.map(item => {
 
-          return (
-            <ArticleDetail
-              setCurrent={setCurrent}
-              isActiveArticleDetail={isActiveArticleDetail}
-              setActiveArticleDetail={setActiveArticleDetail}
-              key={item.id} 
-              id={item.id} 
-              text={item.text} 
-              short_description={item.short_description}
-              number={item.number}
-              current={current}
-            />
+  // next add list view to make it look like esc portals
+  // then maybe style this a bit better
+  // look into react router cause this cheating way isn't gonna cut it lol
+  return (
+    <>
+    <div className={`top-container ${!isActiveArticleDetail && 'hide-container'}`}>
+    <span><button onClick={() => setListView(false)}>Grid View</button></span>
+    <span><button onClick={() => setListView(true)}>List View</button></span>
+    </div>
+    <ul className={`card-container ${listView && 'list-view'}`}>
+    {
+      kbArticles.map(item => {
+        return (
+          <ArticleDetail
+          setCurrent={setCurrent}
+          isActiveArticleDetail={isActiveArticleDetail}
+          setActiveArticleDetail={setActiveArticleDetail}
+          key={item.id}
+          {...item}
+          current={current}
+          />
           )
-        }
-        )
+        })
       }
       </ul>
-    )
+    </>
+  )
 }
 
 export default App

@@ -25,10 +25,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 h1 {
@@ -69,6 +69,14 @@ a.card {
   width: 20rem;
 }
 
+.card-container.list-view {
+  flex-direction: column;
+}
+
+.card-container.list-view .card {
+  width: auto;
+}
+
 .article-body {
   max-height: 10rem;
   display: -webkit-box;
@@ -94,4 +102,12 @@ a.card {
   position: fixed;
   top: 2rem;
   right: 2rem;
+}
+
+ul {
+  padding: 0;
+}
+
+.top-container.hide-container {
+  display: none;
 }
