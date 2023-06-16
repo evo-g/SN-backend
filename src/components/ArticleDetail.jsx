@@ -1,7 +1,7 @@
 export default function ArticleDetail({
   isActiveArticleDetail,
   setActiveArticleDetail,
-  id,
+  sys_id,
   text,
   short_description,
   number,
@@ -10,7 +10,7 @@ export default function ArticleDetail({
 }) {
   function toggle(bool, active) {
     setActiveArticleDetail(bool)
-    if (current === id) {
+    if (current === sys_id) {
       setCurrent('');
     }
     setCurrent(active);
@@ -21,15 +21,15 @@ export default function ArticleDetail({
       <li className='card'>
         <h2>{number}</h2>
         <p>{short_description}</p>
-        <button onClick={() => toggle(!isActiveArticleDetail, id)}>More Detail</button>
+        <button onClick={() => toggle(!isActiveArticleDetail, sys_id)}>More Detail</button>
       </li>
     )
   }
 
-  if (!isActiveArticleDetail && current === id) {
+  if (!isActiveArticleDetail && current === sys_id) {
     return (
       <div className="article-detail">
-        <button onClick={() => toggle(!isActiveArticleDetail, id)} className="return-btn">Go Back</button>
+        <button onClick={() => toggle(!isActiveArticleDetail, sys_id)} className="return-btn">Go Back</button>
         <h1>{number}</h1>
         <div dangerouslySetInnerHTML={{ __html: text }}></div>
       </div>

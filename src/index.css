@@ -67,6 +67,7 @@ a.card {
 .card {
   border: 1px solid #213547;
   width: 20rem;
+  border-radius: .3rem;
 }
 
 .card-container.list-view {
