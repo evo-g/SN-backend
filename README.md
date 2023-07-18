@@ -1,5 +1,5 @@
 # ServiceNow as a backend
-- Need a PDI from ServiceNow, to add Scripted REST Service Record for the API endpoint
+- Need a PDI from ServiceNow, to add Scripted REST Service Record for the API endpoint table[sys_ws_definition]
 - On that record you will need to add a Scripted REST Resource record on the related records tab
 - Here you can name this new record anything I am calling mine Knowledge as I am making a call to that table. In the script on this record you will do a GLideRecord call on your servicenow instance and return what data you want to send to your frontend.
 - It will have a checkbox to use authentication or not. I left mine unchecked
